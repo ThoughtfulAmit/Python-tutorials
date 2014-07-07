@@ -395,3 +395,176 @@ def example3(**this):
 bacon={'mom':45, 'dad':46}
 print example3(**bacon)
 
+# 32: Object Oriented Program
+
+print "\n32: Object Oriented Program"
+class egClass:
+    eyes="brown"
+    age=21
+    def thisMethod(self):       #first parameter has to be 'self'
+        return 'hey this method works'
+print egClass
+egObject = egClass()
+print egObject.eyes
+print egObject.thisMethod()
+
+# 33: Classes and Self
+
+print "\n33: Classes and Self"
+
+class Name:
+    def createName(self,name):
+        self.name2 = name
+    def displayName(self):
+        return self.name2
+    def saying(self):
+        print "hello %s" % self.name2
+
+first=Name()
+second=Name()
+first.createName('amit')
+second.createName('user')
+print first.displayName()
+first.saying()
+print first.name2
+print second.name2
+
+# 34: Subclasses Superclasses
+
+print "\n34: Subclasses Superclasses"
+class parentClass:
+    var1="I am var1"
+    var2="I am var2"
+
+class childClass(parentClass):
+    pass                            #means do nothing
+
+pObj=parentClass()
+print pObj.var1
+cObj=childClass()
+print cObj.var1
+print cObj.var2
+
+# 35: Overwrite Variable on a SubClass
+
+print "\n35: Overwrite Variable on a SubClass"
+class parent:
+    var1 = "bacon"
+    var2 = "apples"
+
+class child(parent):
+    var2 = "toast"
+
+pobj=parent()
+cobj=child()
+print pobj.var1
+print pobj.var2
+print cobj.var1
+print cobj.var2
+
+# 36: Multiple Parent Classes
+
+print "\n36: Multiple Parent Classes"
+class Mom:
+    var1="I'm Mom"
+
+class Dad:
+    var2="I'm Dad"
+
+class child(Mom,Dad):
+    var3="I'm in child class"
+
+cobj=child()
+print cobj.var1
+print cobj.var2
+print cobj.var3
+        
+# 37: Constructors
+
+print "\n37: Constructors"
+class swine:
+    def apples(self):
+        print "apple pie"
+
+obj=swine()
+obj.apples()
+
+class new:
+    def __init__(self):
+        print "This is a constructor"
+        print "printing another statement"
+
+newobj=new()
+
+# 38: Import Modules
+
+print "\n38: Import Modules"
+
+print "\nWrite functions, variables etc in a new file and \nsave it as a .py file in Python folder ONLY"
+
+import module1     #Use 'import modulename' to import functions, variables and other elements
+
+print "\nWe can import only ONCE, so, \nif changes are made in original module they won't show up in current shell"
+
+# 39: reload Modules
+
+print "\n39: reload Modules"
+module1.testmod()
+baby = module1.testmod
+baby()
+raw_input("Press <enter>")
+reload(module1)     #If changes made then use this function to update
+baby()              #shows previous value, reassign it
+baby = module1.testmod
+baby()
+
+# 40: Getting Module Info
+
+print "\n40: Getting Module Info"
+import math
+print math.sqrt(81)
+
+dir(math)       #lists out each function, variables, etc
+help(math)      #detailed description
+
+print "\nDocumentation: " + math.__doc__
+
+# 41: Working with Files
+
+print "\n41: Working with Files"
+fobj = open('c:/python_test/a.txt','w')
+fobj.write('hey, we have put some text in that empty file')
+fobj.close()
+raw_input("Press <enter>")
+fobj = open('c:/python_test/a.txt','r')
+print fobj.read(3)                                #no. of bytes = no. of characters
+print fobj.read()
+fobj.close()
+
+# 42: Reading and Writing
+
+print "\n42: Reading and Writing"
+
+fobj = open('c:/python_test/a.txt','w')
+fobj.write('This is a new line\nthis is line 2\nthis is third line\nlast line')
+fobj.close()
+raw_input("Press <enter>")
+fobj = open('c:/python_test/a.txt','r')
+print fobj.readline()           #reading the first line
+raw_input("Press <enter>")
+print fobj.readlines()          #list form is returned
+fobj.close()
+
+# 43: Editing specific Lines
+
+print "\n43: Editing specific Lines"
+fobj = open('c:/python_test/a.txt','r')
+listlines=fobj.readlines()
+print listlines
+fobj.close()
+
+listlines[2]="line 3rd changed\n"       #remember to add \n
+fobj = open('c:/python_test/a.txt','w')
+fobj.writelines(listlines)
+fobj.close()
+
